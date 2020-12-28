@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<oor:component-data
+ xmlns:oor="http://openoffice.org/2001/registry"
+ xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ oor:name="Addons"
+ oor:package="org.openoffice.Office">
+	<node oor:name="AddonUI">
+		<node oor:name="OfficeToolBar">
+			<node oor:name="PortraitOrLandscape.OfficeToolBar" oor:op="replace">
+				<node oor:name="m001" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$changeOrientation?language=Python&amp;location=user:uno_packages</value>
+                    </prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Changes direction of the page</value>
+						<value xml:lang="en-GB">Changes direction of the page</value>
+						<value xml:lang="it-IT">Cambia la direzione della pagina</value>
+						<value xml:lang="pt-PT">Muda de dire&#231;&#227;o da p&#225;gina</value>
+						<value xml:lang="es-ES">Los cambios de direcci&#243;n de la p&#225;gina</value>
+						<value xml:lang="de-DE">&#196;ndert Richtung der Seite</value>
+						<value xml:lang="fr-FR">Modifie la direction de la page</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m002" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$insPortrait?language=Python&amp;location=user:uno_packages</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Add portrait page</value>
+						<value xml:lang="en-GB">Add portrait page</value>
+						<value xml:lang="it-IT">Aggiungi pagina verticale</value>
+						<value xml:lang="fr-FR">Ajouter la page verticale</value>
+						<value xml:lang="de-DE">Vertical Seite</value>
+						<value xml:lang="es-ES">A&#241;adir p&#225;gina verticales</value>
+						<value xml:lang="pt-PT">Adicionar p&#225;gina vertical</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m003" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$insLandscape?language=Python&amp;location=user:uno_packages</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Add landscape page</value>
+						<value xml:lang="en-GB">Add landscape page</value>
+						<value xml:lang="it-IT">Aggiungi pagina orizzontale</value>
+						<value xml:lang="de-DE">In horizontalen Seite</value>
+						<value xml:lang="es-ES">A&#241;adir p&#225;gina horizontal</value>
+						<value xml:lang="pt-PT">Adicionar p&#225;gina horizontal</value>
+						<value xml:lang="fr-FR">Ajouter la page horizontale</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+                <node oor:name="m004" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$firstPage?language=Python&amp;location=user:uno_packages</value>
+					</prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+						<value>Set the first page</value>
+						<value xml:lang="en-GB">Set the first page</value>
+						<value xml:lang="it-IT">Imposta la prima pagina</value>
+						<value xml:lang="fr-FR">Définir la première page</value>
+						<value xml:lang="es-ES">Establecer la primera página</value>
+						<value xml:lang="pt-PT">Defina a primeira página</value>
+						<value xml:lang="de-DE">Stellen Sie die erste Seite ein</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m005" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$firstPageDialog?language=Python&amp;location=user:uno_packages</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Set document with first page</value>
+						<value xml:lang="en-GB">Set document with first page</value>
+						<value xml:lang="it-IT">Imposta una prima pagina per il documento</value>
+						<value xml:lang="fr-FR">D&#233;finir document avec la premi&#232;re page</value>
+						<value xml:lang="es-ES">Conjunto de documentos con la primera p&#225;gina</value>
+						<value xml:lang="pt-PT">Definir documento com primeira p&#225;gina</value>
+						<value xml:lang="de-DE">Set-Dokument mit ersten Seite</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m006" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$A5?language=Python&amp;location=user:uno_packages</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Set A5 format page</value>
+						<value xml:lang="en-GB">Set A5 format page</value>
+						<value xml:lang="it-IT">Imposta formato pagina A5</value>
+						<value xml:lang="de-DE">Set A5-Format Seite</value>
+						<value xml:lang="es-ES">Establecer p&#225;gina de formato A5</value>
+						<value xml:lang="pt-PT">Definir p&#225;gina de formato A5</value>
+						<value xml:lang="fr-FR">Set A5 format page</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m007" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$A4?language=Python&amp;location=user:uno_packages</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Set A4 format page</value>
+						<value xml:lang="en-GB">Set A4 format page</value>
+						<value xml:lang="it-IT">Imposta formato pagina A4</value>
+						<value xml:lang="fr-FR">Set page A4 format</value>
+						<value xml:lang="es-ES">Establecer p&#225;gina de formato A4</value>
+						<value xml:lang="pt-PT">Definir p&#225;gina formato A4</value>
+						<value xml:lang="de-DE">Legen Sie A4-Format-Seite</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m008" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$A3?language=Python&amp;location=user:uno_packages</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Set A3 format page</value>
+						<value xml:lang="en-GB">Set A3 format page</value>
+						<value xml:lang="it-IT">Imposta formato pagina A3</value>
+						<value xml:lang="de-DE">Legen Sie A3-Format Seite</value>
+						<value xml:lang="pt-PT">Definir p&#225;gina de formato A3</value>
+						<value xml:lang="es-ES">Establecer p&#225;gina de formato A3</value>
+						<value xml:lang="en-US">R&#233;glez A3 format page</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+				<node oor:name="m009" oor:op="replace">
+					<prop oor:name="Context" oor:type="xs:string">
+						<value>com.sun.star.text.TextDocument</value>
+					</prop>
+					<prop oor:name="URL" oor:type="xs:string">
+						<value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$informationdlg?language=Python&amp;location=user:uno_packages</value>
+					</prop>
+					<prop oor:name="Title" oor:type="xs:string">
+						<value>Information</value>
+						<value xml:lang="en-GB">Information</value>
+						<value xml:lang="it-IT">Informazioni</value>
+						<value xml:lang="de-DE">Informationen</value>
+						<value xml:lang="fr-FR">Information</value>
+						<value xml:lang="es-ES">Informaci&#243;n</value>
+						<value xml:lang="pt-PT">Informa&#231;&#227;o</value>
+					</prop>
+					<prop oor:name="Target" oor:type="xs:string">
+						<value>_self</value>
+					</prop>
+				</node>
+			</node>
+		</node>
+        <node oor:name="Images">
+            <node oor:name="images1" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$changeOrientation?language=Python&amp;location=user:uno_packages</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons16/image1.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons24/image1.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="images2" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$insPortrait?language=Python&amp;location=user:uno_packages</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons16/image2.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons24/image2.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="images3" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$insLandscape?language=Python&amp;location=user:uno_packages</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons16/image3.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons24/image3.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="images4" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$firstPage?language=Python&amp;location=user:uno_packages</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons16/image4.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons24/image4.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="images5" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$firstPageDialog?language=Python&amp;location=user:uno_packages</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons16/image5.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons24/image5.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="images6" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$A5?language=Python&amp;location=user:uno_packages</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons16/image6.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons24/image6.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="images7" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$A4?language=Python&amp;location=user:uno_packages</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons16/image7.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons24/image7.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="images8" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$A3?language=Python&amp;location=user:uno_packages</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons16/image8.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons24/image8.png</value>
+                    </prop>
+                </node>
+            </node>
+            <node oor:name="images9" oor:op="replace">
+                <prop oor:name="URL" oor:type="xs:string">
+                    <value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$informationdlg?language=Python&amp;location=user:uno_packages</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons16/image9.png</value>
+                    </prop>
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/icons/icons24/image9.png</value>
+                    </prop>
+                </node>
+            </node>
+        </node>
+	</node>
+</oor:component-data>

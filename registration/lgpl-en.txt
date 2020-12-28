@@ -1,0 +1,12 @@
+This extension is licensed under LGPL v.3
+Visit the site to read the full text: https://www.gnu.org/licenses/lgpl-3.0.en.html
+
+Developer:
+Antonio Faccioli
+antonio.faccioli@libreoffice.org
+
+Site:
+https://libreoffice.soluzioniopen.com
+
+Github
+https://github.com/antoniofaccioli/PortraitOrLandscape
