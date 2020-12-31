@@ -67,7 +67,10 @@ def initLn():
         "labelInformation" : "Per qualsiasi informazione o segnalazione potete contattare:",
         "heightPage" : "Altezza",
         "widthPage" : "Larghezza",
-        "infoGroup" : "Informazioni sullo stile applicato su questa pagina:"}
+        "infoGroup" : "Informazioni sullo stile applicato a questa pagina:",
+        "pageStyle" : "Stile pagina:",
+        "followStyle" : "Stile successivo:"
+        }
         
     elif language == "en":
         ln = {
@@ -82,7 +85,9 @@ def initLn():
         "labelInformation" : "You can contact for any information or report:",
         "heightPage" : "Height page",
         "widthPage" : "Width page",
-        "infoGroup" : "Style information applied to this page:"}
+        "infoGroup" : "Style information applied to this page:",
+        "pageStyle" : "Page style:",
+        "followStyle" : "Next style:"}
         
     elif language == "de":
         ln = {
@@ -97,7 +102,9 @@ def initLn():
         "labelInformation" : "Sie können für jede Information oder berichten kontaktieren:",
         "heightPage" : "Höhe Seite",
         "widthPage" : "Breite Seite",
-        "infoGroup" : "Style-Informationen auf dieser Seite angewendet:"}
+        "infoGroup" : "Style-Informationen auf dieser Seite angewendet:",
+        "pageStyle" : "Seitenstil:",
+        "followStyle" : "Nächster Stil:"}
         
     elif language == "fr":
         ln = {
@@ -112,7 +119,9 @@ def initLn():
         "labelInformation" : "Vous pouvez contacter pour toute information ou rapport:",
         "heightPage" : "Page Hauteur",
         "widthPage" : "Page Largeur",
-        "infoGroup" : "Des informations de style appliqué à cette page:"}
+        "infoGroup" : "Des informations de style appliqué à cette page:",
+        "pageStyle" : "Style de page:",
+        "followStyle" : "Style suivant:"}
         
     elif language == "es":
         ln = {
@@ -127,7 +136,9 @@ def initLn():
         "labelInformation" : "Puede ponerse en contacto para cualquier información o informe:",
         "heightPage" : "Altura de la página",
         "widthPage" : "Ancho de página",
-        "infoGroup" : "Información de estilo aplicado a esta página:"}
+        "infoGroup" : "Información de estilo aplicado a esta página:",
+        "pageStyle" : "Estilo de página:",
+        "followStyle" : "Siguiente estilo:"}
            
     elif language == "pt":
         ln = {
@@ -142,7 +153,9 @@ def initLn():
         "labelInformation" : "Você pode entrar em contato para qualquer informação ou relatório:",
         "heightPage" : "Altura da página",
         "widthPage" : "Largura da página",
-        "infoGroup" : "Informações de estilo aplicado a esta página:"}
+        "infoGroup" : "Informações de estilo aplicado a esta página:",
+        "pageStyle" : "Estilo de página:",
+        "followStyle" : "Próximo estilo:"}
 
     else:
         ln = {
@@ -157,7 +170,9 @@ def initLn():
         "labelInformation" : "You can contact for any information or report:",
         "heightPage" : "Height page",
         "widthPage" : "Width page",
-        "infoGroup" : "Style information applied to this page:"}
+        "infoGroup" : "Style information applied to this page:",
+        "pageStyle" : "Page style:",
+        "followStyle" : "Next style:"}
         
     ln["labelEmail"] = "antonio.faccioli@libreoffice.org"
     
@@ -178,7 +193,7 @@ def informationdlg(*param):
     infoGroupTitle.Label = ln["infoGroup"]
 
     infoStyle = dlg.getByName("infoStyle")
-    infoStyle.Label = nameCurrentStyle()
+    infoStyle.Label = ln["pageStyle"] + " " + nameCurrentStyle() + ". " + ln["followStyle"] + " " + styleFollow(indexCurrentStyle()) +"."
     
     infoSize = dlg.getByName("infoSize")
     infoSize.Label = ln["widthPage"] + ": " + "{:.2f}".format(width()/1000) + " cm - " + ln["heightPage"] + ": " + "{:.2f}".format(height()/1000) + " cm"
@@ -257,12 +272,17 @@ def styleApply(IndexStyle):
 
 def setFollowStyle(IndexStyle, IndexFollow):
     
-    styleName = doc.StyleFamilies.getByName("PageStyles").getByIndex(IndexStyle).DisplayName
     styleFollow = doc.StyleFamilies.getByName("PageStyles").getByIndex(IndexFollow).DisplayName
 
     pageStyle = doc.StyleFamilies.getByName("PageStyles").getByIndex(IndexStyle)
     pageStyle.FollowStyle = styleFollow
 
+def styleFollow(IndexStyle):
+
+    pageStyle = doc.StyleFamilies.getByName("PageStyles").getByIndex(IndexStyle)
+    followStyle = doc.StyleFamilies.getByName("PageStyles").getByName(pageStyle.FollowStyle).DisplayName
+    
+    return followStyle
 
 def changeSize(intWidth, intHeight):
 
@@ -435,3 +455,4 @@ def firstPageSetLeft():
 
     styleApply(1)
     setFollowStyle(1,2)
+
