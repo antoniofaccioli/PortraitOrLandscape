@@ -51,9 +51,9 @@ def getLanguage():
     return Lang
 
 def initLn():
-    
+
     language = getLanguage()
-    
+
     if language == "it":
         ln = {
         "TitleFirstPage" : "Imposta Prima Pagina",
@@ -69,9 +69,10 @@ def initLn():
         "widthPage" : "Larghezza",
         "infoGroup" : "Informazioni sullo stile applicato a questa pagina:",
         "pageStyle" : "Stile pagina:",
-        "followStyle" : "Stile successivo:"
+        "followStyle" : "Stile successivo:",
+        "nrPage" : "Numero pagina:"
         }
-        
+
     elif language == "en":
         ln = {
         "TitleFirstPage" : "Set Front Page",
@@ -88,7 +89,7 @@ def initLn():
         "infoGroup" : "Style information applied to this page:",
         "pageStyle" : "Page style:",
         "followStyle" : "Next style:"}
-        
+
     elif language == "de":
         ln = {
         "TitleFirstPage" : "Startseite einstellen",
@@ -105,7 +106,7 @@ def initLn():
         "infoGroup" : "Style-Informationen auf dieser Seite angewendet:",
         "pageStyle" : "Seitenstil:",
         "followStyle" : "Nächster Stil:"}
-        
+
     elif language == "fr":
         ln = {
         "TitleFirstPage" : "Définir la page d'accueil",
@@ -122,7 +123,7 @@ def initLn():
         "infoGroup" : "Des informations de style appliqué à cette page:",
         "pageStyle" : "Style de page:",
         "followStyle" : "Style suivant:"}
-        
+
     elif language == "es":
         ln = {
         "TitleFirstPage" : "Establecer portada",
@@ -139,7 +140,7 @@ def initLn():
         "infoGroup" : "Información de estilo aplicado a esta página:",
         "pageStyle" : "Estilo de página:",
         "followStyle" : "Siguiente estilo:"}
-           
+
     elif language == "pt":
         ln = {
         "TitleFirstPage" : "Definir primeira página",
@@ -173,46 +174,52 @@ def initLn():
         "infoGroup" : "Style information applied to this page:",
         "pageStyle" : "Page style:",
         "followStyle" : "Next style:"}
-        
+
     ln["labelEmail"] = "antonio.faccioli@libreoffice.org"
-    
+
     return ln
 
 def informationdlg(*param):
-    
+
     ln = initLn()
-    
+
     dp = SM.createInstanceWithContext("com.sun.star.awt.DialogProvider", CTX)
     dialog = dp.createDialog( "vnd.sun.star.script:PortraitOrLandscape.Information?location=application")
-    
+
     dlg = dialog.Model
-    
+
     dlg.Title = ln["TitleInformation"]
-    
+
     infoGroupTitle = dlg.getByName("infoGroup")
     infoGroupTitle.Label = ln["infoGroup"]
 
+    infoNrPage = dlg.getByName("nrPage")
+    infoNrPage.Label = ln["nrPage"] + " " + str(pageNumber())
+
     infoStyle = dlg.getByName("infoStyle")
-    infoStyle.Label = ln["pageStyle"] + " " + nameCurrentStyle() + ". " + ln["followStyle"] + " " + styleFollow(indexCurrentStyle()) +"."
-    
+    infoStyle.Label = ln["pageStyle"] + " " + nameCurrentStyle()
+
+    infoFollowStyle = dlg.getByName("followStyle")
+    infoFollowStyle.Label = ln["followStyle"] + " " + styleFollow(indexCurrentStyle())
+
     infoSize = dlg.getByName("infoSize")
     infoSize.Label = ln["widthPage"] + ": " + "{:.2f}".format(width()/1000) + " cm - " + ln["heightPage"] + ": " + "{:.2f}".format(height()/1000) + " cm"
-    
+
     infoLabel = dlg.getByName("labelInformation")
     infoLabel.Label = ln["labelInformation"]
 
     emailLabel = dlg.getByName("labelEmail")
     emailLabel.Label = ln["labelEmail"]
-    
+
     dialog.execute()
-    
+
 def firstPageDialog(*param):
-    
+
     ln = initLn()
 
     dp = SM.createInstanceWithContext("com.sun.star.awt.DialogProvider", CTX)
     dialog = dp.createDialog( "vnd.sun.star.script:PortraitOrLandscape.FirstPage?location=application")
-    
+
     dlg = dialog.Model
     dlg.Title = ln["TitleFirstPage"]
 
@@ -248,30 +255,40 @@ def firstPageDialog(*param):
         dialog.endExecute()
 
 def insertPageBreak(IndexStyle):
-    
+
     styleName = doc.StyleFamilies.getByName("PageStyles").getByIndex(IndexStyle).DisplayName
-    
+
     args = { 'Kind':3,
              'TemplateName':styleName,
              'PageNumber':0}
-    
+
     args = dict_to_property(args)
-    
+
     call_dispatch(doc, '.uno:InsertBreak', args)
-    
+
+
+def pageNumber():
+
+    cursor = doc.CurrentController.getViewCursor()
+
+    pageNumber = cursor.getPage()
+
+    return pageNumber
+
+
 def styleApply(IndexStyle):
 
     styleName = doc.StyleFamilies.getByName("PageStyles").getByIndex(IndexStyle).DisplayName
 
     args = {"Template":styleName,
             "Family":8}
-    
+
     args = dict_to_property(args)
 
     call_dispatch(doc, '.uno:StyleApply', args)
 
 def setFollowStyle(IndexStyle, IndexFollow):
-    
+
     styleFollow = doc.StyleFamilies.getByName("PageStyles").getByIndex(IndexFollow).DisplayName
 
     pageStyle = doc.StyleFamilies.getByName("PageStyles").getByIndex(IndexStyle)
@@ -281,7 +298,7 @@ def styleFollow(IndexStyle):
 
     pageStyle = doc.StyleFamilies.getByName("PageStyles").getByIndex(IndexStyle)
     followStyle = doc.StyleFamilies.getByName("PageStyles").getByName(pageStyle.FollowStyle).DisplayName
-    
+
     return followStyle
 
 def changeSize(intWidth, intHeight):
@@ -291,19 +308,19 @@ def changeSize(intWidth, intHeight):
     pageStyle = doc.StyleFamilies.getByName("PageStyles").getByName(cursor.PageStyleName)
     pageStyle.Width = intWidth
     pageStyle.Height = intHeight
-    
+
 def nameCurrentStyle():
 
     cursor = doc.CurrentController.getViewCursor()
 
     nameCurrentStyle = doc.StyleFamilies.getByName("PageStyles").getByName(cursor.PageStyleName).DisplayName
-    
+
     return nameCurrentStyle
 
 def nameStyle(indexStyle):
 
     nameStyle = doc.StyleFamilies.getByName("PageStyles").getByIndex(indexStyle).DisplayName
-    
+
     return nameStyle
 
 def changeOrientation(*param):
@@ -316,25 +333,25 @@ def changeOrientation(*param):
 def indexCurrentStyle():
 
     if nameCurrentStyle() == nameStyle(0):
-    
+
         indexCurrentStyle = 0
-    
+
     elif nameCurrentStyle() ==  nameStyle(1):
-    
-        indexCurrentStyle = 1     
+
+        indexCurrentStyle = 1
 
     elif nameCurrentStyle() ==  nameStyle(2):
-    
+
         indexCurrentStyle = 2
-    
+
     elif nameCurrentStyle() ==  nameStyle(3):
-    
+
         indexCurrentStyle = 3
 
     elif nameCurrentStyle() ==  nameStyle(9):
-    
+
         indexCurrentStyle = 9
-    
+
     return indexCurrentStyle
 
 def A5(*param):
@@ -350,21 +367,21 @@ def A4(*param):
         changeSize(29700, 21000)
     else:
         changeSize(21000, 29700)
-    
+
 def A3(*param):
 
     if indexCurrentStyle() == 9:
         changeSize(42000, 29700)
     else:
         changeSize(29700, 42000)
-        
+
 def pathUser():
-    
-    
+
+
     path = os.path.dirname(__file__)
     path = path.split("///")
     sepPath = os.path.sep
-    
+
     if platform == "linux" or platform == "linux2":
         url = sepPath+path[1]+sepPath
     elif platform == "darwin":
@@ -372,54 +389,54 @@ def pathUser():
         url = sepPath+urlTemp+sepPath
     else:
         url = path[1]+sepPath
-    
+
     return url
-    
+
 def insLandscape(*param):
-      
+
     if indexCurrentStyle() != 9:
         if indexCurrentStyle() == 1:
             prevStyle = 0
         else:
             prevStyle = indexCurrentStyle()
-    
-    try:    
-        path = pathUser()    
+
+    try:
+        path = pathUser()
         ini = open(path+"info.ini", "w")
         ini.write(str(prevStyle))
         ini.close
     except:
         pass
-    
+
     insertPageBreak(9)
 
 def insPortrait(*param):
 
     try:
-        path = pathUser()    
+        path = pathUser()
         ini = open(path+"info.ini", "r")
         style = ini.readline()
         insertPageBreak(style)
         ini.close
     except:
-        insertPageBreak(0)  
-    
+        insertPageBreak(0)
+
 def width():
 
     cursor = doc.CurrentController.getViewCursor()
 
     pageStyle = doc.StyleFamilies.getByName("PageStyles").getByName(cursor.PageStyleName)
     width = pageStyle.Width
-    
+
     return width
 
 def height():
-    
+
     cursor = doc.CurrentController.getViewCursor()
 
     pageStyle = doc.StyleFamilies.getByName("PageStyles").getByName(cursor.PageStyleName)
     height = pageStyle.Height
-    
+
     return height
 
 def firstPage(*param):
@@ -433,26 +450,25 @@ def firstPageBreak():
 
     styleApply(1)
     insertPageBreak(0)
-    
+
 def firstPageBreakRight():
 
     styleApply(1)
     insertPageBreak(0)
     insertPageBreak(3)
-    
+
 def firstPageBreakSetRight():
 
     styleApply(1)
     insertPageBreak(0)
     setFollowStyle(0,3)
-    
+
 def firstPageSetDefRight():
 
     styleApply(1)
     setFollowStyle(0,3)
-    
+
 def firstPageSetLeft():
 
     styleApply(1)
     setFollowStyle(1,2)
-
