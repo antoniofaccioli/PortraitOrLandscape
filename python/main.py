@@ -88,7 +88,8 @@ def initLn():
         "widthPage" : "Width page",
         "infoGroup" : "Style information applied to this page:",
         "pageStyle" : "Page style:",
-        "followStyle" : "Next style:"}
+        "followStyle" : "Next style:",
+        "nrPage" : "Page number:"}
 
     elif language == "de":
         ln = {
@@ -105,7 +106,8 @@ def initLn():
         "widthPage" : "Breite Seite",
         "infoGroup" : "Style-Informationen auf dieser Seite angewendet:",
         "pageStyle" : "Seitenstil:",
-        "followStyle" : "Nächster Stil:"}
+        "followStyle" : "Nächster Stil:",
+        "nrPage" : "Seitennummer:"}
 
     elif language == "fr":
         ln = {
@@ -122,7 +124,8 @@ def initLn():
         "widthPage" : "Page Largeur",
         "infoGroup" : "Des informations de style appliqué à cette page:",
         "pageStyle" : "Style de page:",
-        "followStyle" : "Style suivant:"}
+        "followStyle" : "Style suivant:",
+        "nrPage" : "Numéro de page:"}
 
     elif language == "es":
         ln = {
@@ -139,7 +142,8 @@ def initLn():
         "widthPage" : "Ancho de página",
         "infoGroup" : "Información de estilo aplicado a esta página:",
         "pageStyle" : "Estilo de página:",
-        "followStyle" : "Siguiente estilo:"}
+        "followStyle" : "Siguiente estilo:",
+        "nrPage" : "Número de página:"}
 
     elif language == "pt":
         ln = {
@@ -156,7 +160,8 @@ def initLn():
         "widthPage" : "Largura da página",
         "infoGroup" : "Informações de estilo aplicado a esta página:",
         "pageStyle" : "Estilo de página:",
-        "followStyle" : "Próximo estilo:"}
+        "followStyle" : "Próximo estilo:",
+        "nrPage" : "Número de página:"}
 
     else:
         ln = {
@@ -173,7 +178,8 @@ def initLn():
         "widthPage" : "Width page",
         "infoGroup" : "Style information applied to this page:",
         "pageStyle" : "Page style:",
-        "followStyle" : "Next style:"}
+        "followStyle" : "Next style:",
+        "nrPage" : "Page number:"}
 
     ln["labelEmail"] = "antonio.faccioli@libreoffice.org"
 
@@ -354,6 +360,26 @@ def indexCurrentStyle():
 
     return indexCurrentStyle
 
+def indexFollowStyle(IndexStyle):
+
+    if styleFollow(IndexStyle) == nameStyle(0):
+
+        indexFollowStyle = 0
+
+    elif styleFollow(IndexStyle) ==  nameStyle(2):
+
+        indexFollowStyle = 2
+
+    elif styleFollow(IndexStyle) ==  nameStyle(3):
+
+        indexFollowStyle = 3
+
+    elif styleFollow(IndexStyle) ==  nameStyle(9):
+
+        indexFollowStyle = 9
+
+    return indexFollowStyle
+
 def A5(*param):
 
     if indexCurrentStyle() == 9:
@@ -395,18 +421,15 @@ def pathUser():
 def insLandscape(*param):
 
     if indexCurrentStyle() != 9:
-        if indexCurrentStyle() == 1:
-            prevStyle = 0
-        else:
-            prevStyle = indexCurrentStyle()
+        prevStyle = indexCurrentStyle()
 
-    try:
-        path = pathUser()
-        ini = open(path+"info.ini", "w")
-        ini.write(str(prevStyle))
-        ini.close
-    except:
-        pass
+        try:
+            path = pathUser()
+            ini = open(path+"info.ini", "w")
+            ini.write(str(prevStyle))
+            ini.close
+        except:
+            pass
 
     insertPageBreak(9)
 
@@ -416,8 +439,49 @@ def insPortrait(*param):
         path = pathUser()
         ini = open(path+"info.ini", "r")
         style = ini.readline()
-        insertPageBreak(style)
+        if style == 'S':
+            pass
+        else:
+            style = int(style)
         ini.close
+
+        if style == 2 or style == 3:
+            if pageNumber() % 2 == 0:
+                insertPageBreak(3)
+            else:
+                insertPageBreak(2)
+        elif style == 1:
+            if indexFollowStyle(1) == 0:
+                insertPageBreak(0)
+            elif indexFollowStyle(1) == 2 or indexFollowStyle(1) == 3:
+                if pageNumber() % 2 == 0:
+                    insertPageBreak(3)
+                else:
+                    insertPageBreak(2)
+        elif style == 0:
+            if indexFollowStyle(0) == 0:
+                insertPageBreak(0)
+            elif indexFollowStyle(0) == 2 or indexFollowStyle(0) == 3:
+                if pageNumber() % 2 == 0:
+                    insertPageBreak(3)
+                else:
+                    insertPageBreak(2)
+        else:
+            iStyle = indexCurrentStyle()
+            fStyle = indexFollowStyle(iStyle)
+            
+            if fStyle == 2 or fStyle == 3:
+                if pageNumber() % 2 == 0:
+                    insertPageBreak(3)
+                else:
+                    insertPageBreak(2)
+            else:
+                insertPageBreak(fStyle)
+        
+        ini = open(path+"info.ini", "w")
+        ini.write('S')
+        ini.close
+
     except:
         insertPageBreak(0)
 
@@ -466,6 +530,7 @@ def firstPageBreakSetRight():
 def firstPageSetDefRight():
 
     styleApply(1)
+    setFollowStyle(1,0)
     setFollowStyle(0,3)
 
 def firstPageSetLeft():
