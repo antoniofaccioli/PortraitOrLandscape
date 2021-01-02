@@ -15,12 +15,12 @@
 						<value>vnd.sun.star.script:portraitorlandscape.oxt|python|main.py$changeOrientation?language=Python&amp;location=user:uno_packages</value>
                     </prop>
 					<prop oor:name="Title" oor:type="xs:string">
-						<value>Changes direction of the page</value>
-						<value xml:lang="en-GB">Changes direction of the page</value>
+						<value>Change the page orientation</value>
+						<value xml:lang="en-GB">Change the page orientation</value>
 						<value xml:lang="it-IT">Cambia la direzione della pagina</value>
 						<value xml:lang="pt-PT">Muda de dire&#231;&#227;o da p&#225;gina</value>
 						<value xml:lang="es-ES">Los cambios de direcci&#243;n de la p&#225;gina</value>
-						<value xml:lang="de-DE">&#196;ndert Richtung der Seite</value>
+						<value xml:lang="de-DE">&Auml;ndern der Seitenausrichtung</value>
 						<value xml:lang="fr-FR">Modifie la direction de la page</value>
 					</prop>
 					<prop oor:name="Target" oor:type="xs:string">
@@ -39,7 +39,7 @@
 						<value xml:lang="en-GB">Add portrait page</value>
 						<value xml:lang="it-IT">Aggiungi pagina verticale</value>
 						<value xml:lang="fr-FR">Ajouter la page verticale</value>
-						<value xml:lang="de-DE">Vertical Seite</value>
+						<value xml:lang="de-DE">Hochformat-Seite hinzuf&uuml;gen</value>
 						<value xml:lang="es-ES">A&#241;adir p&#225;gina verticales</value>
 						<value xml:lang="pt-PT">Adicionar p&#225;gina vertical</value>
 					</prop>
@@ -58,7 +58,7 @@
 						<value>Add landscape page</value>
 						<value xml:lang="en-GB">Add landscape page</value>
 						<value xml:lang="it-IT">Aggiungi pagina orizzontale</value>
-						<value xml:lang="de-DE">In horizontalen Seite</value>
+						<value xml:lang="de-DE">Querformat-Seite hinzuf&uuml;gen</value>
 						<value xml:lang="es-ES">A&#241;adir p&#225;gina horizontal</value>
 						<value xml:lang="pt-PT">Adicionar p&#225;gina horizontal</value>
 						<value xml:lang="fr-FR">Ajouter la page horizontale</value>
@@ -81,7 +81,7 @@
 						<value xml:lang="fr-FR">Définir la première page</value>
 						<value xml:lang="es-ES">Establecer la primera página</value>
 						<value xml:lang="pt-PT">Defina a primeira página</value>
-						<value xml:lang="de-DE">Stellen Sie die erste Seite ein</value>
+						<value xml:lang="de-DE">Einstellen der ersten Seite</value>
 					</prop>
 					<prop oor:name="Target" oor:type="xs:string">
 						<value>_self</value>
@@ -101,7 +101,7 @@
 						<value xml:lang="fr-FR">D&#233;finir document avec la premi&#232;re page</value>
 						<value xml:lang="es-ES">Conjunto de documentos con la primera p&#225;gina</value>
 						<value xml:lang="pt-PT">Definir documento com primeira p&#225;gina</value>
-						<value xml:lang="de-DE">Set-Dokument mit ersten Seite</value>
+						<value xml:lang="de-DE">Setzen einer Startseite f&uuml;r das Dokument</value>
 					</prop>
 					<prop oor:name="Target" oor:type="xs:string">
 						<value>_self</value>
@@ -118,7 +118,7 @@
 						<value>Set A5 format page</value>
 						<value xml:lang="en-GB">Set A5 format page</value>
 						<value xml:lang="it-IT">Imposta formato pagina A5</value>
-						<value xml:lang="de-DE">Set A5-Format Seite</value>
+						<value xml:lang="de-DE">Seitenformat A5 einstellen</value>
 						<value xml:lang="es-ES">Establecer p&#225;gina de formato A5</value>
 						<value xml:lang="pt-PT">Definir p&#225;gina de formato A5</value>
 						<value xml:lang="fr-FR">Set A5 format page</value>
@@ -141,7 +141,7 @@
 						<value xml:lang="fr-FR">Set page A4 format</value>
 						<value xml:lang="es-ES">Establecer p&#225;gina de formato A4</value>
 						<value xml:lang="pt-PT">Definir p&#225;gina formato A4</value>
-						<value xml:lang="de-DE">Legen Sie A4-Format-Seite</value>
+						<value xml:lang="de-DE">Seitenformat A4 einstellen</value>
 					</prop>
 					<prop oor:name="Target" oor:type="xs:string">
 						<value>_self</value>
@@ -158,7 +158,7 @@
 						<value>Set A3 format page</value>
 						<value xml:lang="en-GB">Set A3 format page</value>
 						<value xml:lang="it-IT">Imposta formato pagina A3</value>
-						<value xml:lang="de-DE">Legen Sie A3-Format Seite</value>
+						<value xml:lang="de-DE">Seitenformat A3 einstellen</value>
 						<value xml:lang="pt-PT">Definir p&#225;gina de formato A3</value>
 						<value xml:lang="es-ES">Establecer p&#225;gina de formato A3</value>
 						<value xml:lang="en-US">R&#233;glez A3 format page</value>
@@ -178,7 +178,7 @@
 						<value>Information</value>
 						<value xml:lang="en-GB">Information</value>
 						<value xml:lang="it-IT">Informazioni</value>
-						<value xml:lang="de-DE">Informationen</value>
+						<value xml:lang="de-DE">Info</value>
 						<value xml:lang="fr-FR">Information</value>
 						<value xml:lang="es-ES">Informaci&#243;n</value>
 						<value xml:lang="pt-PT">Informa&#231;&#227;o</value>
