@@ -4,7 +4,7 @@
  xmlns:dep="http://openoffice.org/extensions/description/2006"
  xmlns:xlink="http://www.w3.org/1999/xlink">
 	<identifier value="com.addon.portraitorlandscape"/>
-	<version value="3.1.0"/>
+	<version value="3.1.1"/>
     <icon>
        <default xlink:href="icons/logo.png" />
     </icon>

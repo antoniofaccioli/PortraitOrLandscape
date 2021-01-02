@@ -1,4 +1,4 @@
-PortraitOrLandscape-3.1.0.oxt
+PortraitOrLandscape-3.1.1.oxt
 01 January 2021
 
 This extension is intended as a help to all the daily users of the page breaks.

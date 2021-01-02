@@ -20,7 +20,7 @@
 						<value xml:lang="it-IT">Cambia la direzione della pagina</value>
 						<value xml:lang="pt-PT">Muda de dire&#231;&#227;o da p&#225;gina</value>
 						<value xml:lang="es-ES">Los cambios de direcci&#243;n de la p&#225;gina</value>
-						<value xml:lang="de-DE">&Auml;ndern der Seitenausrichtung</value>
+						<value xml:lang="de-DE">&#196;ndern der Seitenausrichtung</value>
 						<value xml:lang="fr-FR">Modifie la direction de la page</value>
 					</prop>
 					<prop oor:name="Target" oor:type="xs:string">
@@ -39,7 +39,7 @@
 						<value xml:lang="en-GB">Add portrait page</value>
 						<value xml:lang="it-IT">Aggiungi pagina verticale</value>
 						<value xml:lang="fr-FR">Ajouter la page verticale</value>
-						<value xml:lang="de-DE">Hochformat-Seite hinzuf&uuml;gen</value>
+						<value xml:lang="de-DE">Hochformat-Seite hinzuf&#252;gen</value>
 						<value xml:lang="es-ES">A&#241;adir p&#225;gina verticales</value>
 						<value xml:lang="pt-PT">Adicionar p&#225;gina vertical</value>
 					</prop>
@@ -58,7 +58,7 @@
 						<value>Add landscape page</value>
 						<value xml:lang="en-GB">Add landscape page</value>
 						<value xml:lang="it-IT">Aggiungi pagina orizzontale</value>
-						<value xml:lang="de-DE">Querformat-Seite hinzuf&uuml;gen</value>
+						<value xml:lang="de-DE">Querformat-Seite hinzuf&#252;gen</value>
 						<value xml:lang="es-ES">A&#241;adir p&#225;gina horizontal</value>
 						<value xml:lang="pt-PT">Adicionar p&#225;gina horizontal</value>
 						<value xml:lang="fr-FR">Ajouter la page horizontale</value>
@@ -101,7 +101,7 @@
 						<value xml:lang="fr-FR">D&#233;finir document avec la premi&#232;re page</value>
 						<value xml:lang="es-ES">Conjunto de documentos con la primera p&#225;gina</value>
 						<value xml:lang="pt-PT">Definir documento com primeira p&#225;gina</value>
-						<value xml:lang="de-DE">Setzen einer Startseite f&uuml;r das Dokument</value>
+						<value xml:lang="de-DE">Setzen einer Startseite f&#252;r das Dokument</value>
 					</prop>
 					<prop oor:name="Target" oor:type="xs:string">
 						<value>_self</value>
